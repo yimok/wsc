@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Edit</title>
+    <title>Toilet</title>
 </head>
 <body>
 <h2>다음 책 검색 결과: 질의어 - ${searchWord}</h2>

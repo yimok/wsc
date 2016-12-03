@@ -10,7 +10,8 @@
 <h1>hihihihi</h1>
 
 
-<form action="/seoul/restroom" method="GET">
+<!--<form action="/seoul/restroom" method="GET">-->
+<form action="/local" method="GET">
     <input type="text" name="searchWord" placeholder="검색어"/>
     <input type="submit" value="검색">
 </form>
