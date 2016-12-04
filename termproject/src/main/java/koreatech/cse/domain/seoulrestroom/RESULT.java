@@ -1,5 +1,5 @@
 
-package koreatech.cse.domain.seoul;
+package koreatech.cse.domain.seoulrestroom;
 
 import java.util.HashMap;
 import java.util.Map;

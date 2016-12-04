@@ -1,5 +1,6 @@
 package koreatech.cse.controller.rest;
 
+import koreatech.cse.domain.StationList;
 import koreatech.cse.domain.Temperature;
 import koreatech.cse.domain.User;
 import koreatech.cse.repository.TemperatureMapper;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.inject.Inject;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -93,10 +95,15 @@ public class TemperatureRestController {
     //단순히 객체로 리턴한다면 { }
     public ResponseEntity<List<Temperature>>  temperatureByLocation(@PathVariable("location") String location)
     {         List<Temperature> temperatureList = temperatureMapper.findByLocation(location);
+
+
+
+
         if (temperatureList.size() == 0)
         {             System.out.println("Temperature sensors with location of " + location + " are not found");
             return new ResponseEntity<List<Temperature>>(HttpStatus.NOT_FOUND);
         }
+      //  return new ResponseEntity<List<Temperature>>(temperatureList, HttpStatus.OK);
         return new ResponseEntity<List<Temperature>>(temperatureList, HttpStatus.OK);
     }
 

@@ -45,7 +45,7 @@ public class BookRestController {
             //try catch 안은 단순히 다음에서 가져오는 코드
 
             ResponseEntity<DaumBook> daumBookResponseEntitiy = restTemplate.getForEntity(DAUM_REST_SERVICE_URI +
-                    "/book?apikey=b75892b45b13c00542fac009bf980d6b&q=" + query + "&output=json", DaumBook.class);
+                    "/book?apikey=26750afb73628175ccfd453dbd9fef08&q=" + query + "&output=json", DaumBook.class);
 
 
             daumBook = daumBookResponseEntitiy.getBody();
@@ -77,6 +77,8 @@ public class BookRestController {
         MyBook myBook = new MyBook();
         myBook.setIsbn(daumBook.getChannel().getItem().get(0).getTitle());
         myBook.setTitle(daumBook.getChannel().getItem().get(0).getIsbn());
+
+        System.out.println(myBook.getTitle() + "," + myBook.getIsbn());
         return new ResponseEntity<MyBook>(myBook, HttpStatus.OK);
     }
 }

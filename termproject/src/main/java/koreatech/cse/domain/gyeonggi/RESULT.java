@@ -11,69 +11,36 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@Generated("org.jsonschema2pojo")
-@JsonPropertyOrder({
-    "CODE",
-    "MESSAGE"
-})
-public class RESULT {
+public class RESULT
+{
+    private String MESSAGE;
 
-    @JsonProperty("CODE")
-    private String cODE;
-    @JsonProperty("MESSAGE")
-    private String mESSAGE;
-    @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private String CODE;
 
-    /**
-     * 
-     * @return
-     *     The cODE
-     */
-    @JsonProperty("CODE")
-    public String getCODE() {
-        return cODE;
+    public String getMESSAGE ()
+    {
+        return MESSAGE;
     }
 
-    /**
-     * 
-     * @param cODE
-     *     The CODE
-     */
-    @JsonProperty("CODE")
-    public void setCODE(String cODE) {
-        this.cODE = cODE;
+    public void setMESSAGE (String MESSAGE)
+    {
+        this.MESSAGE = MESSAGE;
     }
 
-    /**
-     * 
-     * @return
-     *     The mESSAGE
-     */
-    @JsonProperty("MESSAGE")
-    public String getMESSAGE() {
-        return mESSAGE;
+    public String getCODE ()
+    {
+        return CODE;
     }
 
-    /**
-     * 
-     * @param mESSAGE
-     *     The MESSAGE
-     */
-    @JsonProperty("MESSAGE")
-    public void setMESSAGE(String mESSAGE) {
-        this.mESSAGE = mESSAGE;
+    public void setCODE (String CODE)
+    {
+        this.CODE = CODE;
     }
 
-    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
+    @Override
+    public String toString()
+    {
+        return "ClassPojo [MESSAGE = "+MESSAGE+", CODE = "+CODE+"]";
     }
-
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }
-
 }
+

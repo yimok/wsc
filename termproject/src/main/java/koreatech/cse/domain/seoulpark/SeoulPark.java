@@ -1,9 +1,7 @@
 
-package koreatech.cse.domain.gyeonggi;
+package koreatech.cse.domain.seoulpark;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import javax.annotation.Generated;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
@@ -16,33 +14,33 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Generated("org.jsonschema2pojo")
 @JsonPropertyOrder({
-    "Publtolt"
+    "SearchParkInfoService"
 })
-public class RestRoom {
+public class SeoulPark {
 
-    @JsonProperty("Publtolt")
-    private List<Publtolt> publtolt = new ArrayList<Publtolt>();
+    @JsonProperty("SearchParkInfoService")
+    private SearchParkInfoService searchParkInfoService;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     /**
      * 
      * @return
-     *     The publtolt
+     *     The searchParkInfoService
      */
-    @JsonProperty("Publtolt")
-    public List<Publtolt> getPubltolt() {
-        return publtolt;
+    @JsonProperty("SearchParkInfoService")
+    public SearchParkInfoService getSearchParkInfoService() {
+        return searchParkInfoService;
     }
 
     /**
      * 
-     * @param publtolt
-     *     The Publtolt
+     * @param searchParkInfoService
+     *     The SearchParkInfoService
      */
-    @JsonProperty("Publtolt")
-    public void setPubltolt(List<Publtolt> publtolt) {
-        this.publtolt = publtolt;
+    @JsonProperty("SearchParkInfoService")
+    public void setSearchParkInfoService(SearchParkInfoService searchParkInfoService) {
+        this.searchParkInfoService = searchParkInfoService;
     }
 
     @JsonAnyGetter

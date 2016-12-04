@@ -12,70 +12,35 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+public class Publtolt
+{
+    private Head head;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@Generated("org.jsonschema2pojo")
-@JsonPropertyOrder({
-    "head",
-    "row"
-})
-public class Publtolt {
+    private Row[] row;
 
-    @JsonProperty("head")
-    private List<Head> head = new ArrayList<Head>();
-    @JsonProperty("row")
-    private List<Row> row = new ArrayList<Row>();
-    @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
-
-    /**
-     * 
-     * @return
-     *     The head
-     */
-    @JsonProperty("head")
-    public List<Head> getHead() {
+    public Head getHead ()
+    {
         return head;
     }
 
-    /**
-     * 
-     * @param head
-     *     The head
-     */
-    @JsonProperty("head")
-    public void setHead(List<Head> head) {
+    public void setHead (Head head)
+    {
         this.head = head;
     }
 
-    /**
-     * 
-     * @return
-     *     The row
-     */
-    @JsonProperty("row")
-    public List<Row> getRow() {
+    public Row[] getRow ()
+    {
         return row;
     }
 
-    /**
-     * 
-     * @param row
-     *     The row
-     */
-    @JsonProperty("row")
-    public void setRow(List<Row> row) {
+    public void setRow (Row[] row)
+    {
         this.row = row;
     }
 
-    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
+    @Override
+    public String toString()
+    {
+        return "ClassPojo [head = "+head+", row = "+row+"]";
     }
-
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }
-
 }

@@ -1,5 +1,5 @@
 
-package koreatech.cse.domain.seoul;
+package koreatech.cse.domain.seoulpark;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,14 +20,14 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "RESULT",
     "row"
 })
-public class SearchPublicToiletPOIService {
+public class SearchParkInfoService {
 
     @JsonProperty("list_total_count")
     private Integer listTotalCount;
     @JsonProperty("RESULT")
     private RESULT rESULT;
     @JsonProperty("row")
-    private List<Row> row = new ArrayList<Row>();
+    private List<PRow> row = new ArrayList<PRow>();
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -77,7 +77,7 @@ public class SearchPublicToiletPOIService {
      *     The row
      */
     @JsonProperty("row")
-    public List<Row> getRow() {
+    public List<PRow> getPRow() {
         return row;
     }
 
@@ -87,7 +87,7 @@ public class SearchPublicToiletPOIService {
      *     The row
      */
     @JsonProperty("row")
-    public void setRow(List<Row> row) {
+    public void setRow(List<PRow> row) {
         this.row = row;
     }
 
@@ -101,14 +101,4 @@ public class SearchPublicToiletPOIService {
         this.additionalProperties.put(name, value);
     }
 
-
-    @Override
-    public String toString() {
-        return "SearchPublicToiletPOIService{" +
-                "listTotalCount=" + listTotalCount +
-                ", rESULT=" + rESULT +
-                ", row=" + row +
-                ", additionalProperties=" + additionalProperties +
-                '}';
-    }
 }

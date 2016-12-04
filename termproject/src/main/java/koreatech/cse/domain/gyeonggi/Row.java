@@ -10,599 +10,311 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+public class Row
+{
+    private String MALE_WTRCLS_CNT;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@Generated("org.jsonschema2pojo")
-@JsonPropertyOrder({
-    "DATA_STD_DE",
-    "SIGUN_NM",
-    "SIGUN_CD",
-    "PUBLFACLT_DIV_NM",
-    "PBCTLT_PLC_NM",
-    "MALE_FEMALE_TOILET_YN",
-    "MALE_WTRCLS_CNT",
-    "MALE_UIL_CNT",
-    "MALE_DSPSN_WTRCLS_CNT",
-    "MALE_DSPSN_UIL_CNT",
-    "MALE_CHILDUSE_WTRCLS_CNT",
-    "MALE_CHILDUSE_UIL_CNT",
-    "FEMALE_WTRCLS_CNT",
-    "FEMALE_DSPSN_WTRCLS_CNT",
-    "FEMALE_CHILDUSE_WTRCLS_CNT",
-    "MANAGE_INST_NM",
-    "MANAGE_INST_TELNO",
-    "OPEN_TM",
-    "OPEN_TM_INFO",
-    "INSTL_YY",
-    "REFINE_LOTNO_ADDR",
-    "REFINE_ROADNM_ADDR",
-    "REFINE_ZIP_CD",
-    "REFINE_WGS84_LOGT",
-    "REFINE_WGS84_LAT"
-})
-public class Row {
+    private String PBCTLT_PLC_NM;
 
-    @JsonProperty("DATA_STD_DE")
-    private String dATASTDDE;
-    @JsonProperty("SIGUN_NM")
-    private String sIGUNNM;
-    @JsonProperty("SIGUN_CD")
-    private String sIGUNCD;
-    @JsonProperty("PUBLFACLT_DIV_NM")
-    private String pUBLFACLTDIVNM;
-    @JsonProperty("PBCTLT_PLC_NM")
-    private String pBCTLTPLCNM;
-    @JsonProperty("MALE_FEMALE_TOILET_YN")
-    private String mALEFEMALETOILETYN;
-    @JsonProperty("MALE_WTRCLS_CNT")
-    private Integer mALEWTRCLSCNT;
-    @JsonProperty("MALE_UIL_CNT")
-    private Integer mALEUILCNT;
-    @JsonProperty("MALE_DSPSN_WTRCLS_CNT")
-    private Integer mALEDSPSNWTRCLSCNT;
-    @JsonProperty("MALE_DSPSN_UIL_CNT")
-    private Integer mALEDSPSNUILCNT;
-    @JsonProperty("MALE_CHILDUSE_WTRCLS_CNT")
-    private Integer mALECHILDUSEWTRCLSCNT;
-    @JsonProperty("MALE_CHILDUSE_UIL_CNT")
-    private Integer mALECHILDUSEUILCNT;
-    @JsonProperty("FEMALE_WTRCLS_CNT")
-    private Integer fEMALEWTRCLSCNT;
-    @JsonProperty("FEMALE_DSPSN_WTRCLS_CNT")
-    private Integer fEMALEDSPSNWTRCLSCNT;
-    @JsonProperty("FEMALE_CHILDUSE_WTRCLS_CNT")
-    private Integer fEMALECHILDUSEWTRCLSCNT;
-    @JsonProperty("MANAGE_INST_NM")
-    private String mANAGEINSTNM;
-    @JsonProperty("MANAGE_INST_TELNO")
-    private String mANAGEINSTTELNO;
-    @JsonProperty("OPEN_TM")
-    private Object oPENTM;
-    @JsonProperty("OPEN_TM_INFO")
-    private Object oPENTMINFO;
-    @JsonProperty("INSTL_YY")
-    private Object iNSTLYY;
-    @JsonProperty("REFINE_LOTNO_ADDR")
-    private String rEFINELOTNOADDR;
-    @JsonProperty("REFINE_ROADNM_ADDR")
-    private String rEFINEROADNMADDR;
-    @JsonProperty("REFINE_ZIP_CD")
-    private String rEFINEZIPCD;
-    @JsonProperty("REFINE_WGS84_LOGT")
-    private Double rEFINEWGS84LOGT;
-    @JsonProperty("REFINE_WGS84_LAT")
-    private Double rEFINEWGS84LAT;
-    @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    private String REFINE_WGS84_LOGT;
 
-    /**
-     * 
-     * @return
-     *     The dATASTDDE
-     */
-    @JsonProperty("DATA_STD_DE")
-    public String getDATASTDDE() {
-        return dATASTDDE;
+    private String REFINE_ROADNM_ADDR;
+
+    private String REFINE_ZIP_CD;
+
+    private String MALE_FEMALE_TOILET_YN;
+
+    private String MALE_DSPSN_UIL_CNT;
+
+    private String REFINE_WGS84_LAT;
+
+    private String INSTL_YY;
+
+    private String MALE_UIL_CNT;
+
+    private String MANAGE_INST_NM;
+
+    private String MALE_CHILDUSE_WTRCLS_CNT;
+
+    private String MALE_CHILDUSE_UIL_CNT;
+
+    private String FEMALE_CHILDUSE_WTRCLS_CNT;
+
+    private String MALE_DSPSN_WTRCLS_CNT;
+
+    private String FEMALE_DSPSN_WTRCLS_CNT;
+
+    private String DATA_STD_DE;
+
+    private String SIGUN_CD;
+
+    private String OPEN_TM;
+
+    private String OPEN_TM_INFO;
+
+    private String MANAGE_INST_TELNO;
+
+    private String FEMALE_WTRCLS_CNT;
+
+    private String SIGUN_NM;
+
+    private String REFINE_LOTNO_ADDR;
+
+    private String PUBLFACLT_DIV_NM;
+
+    public String getMALE_WTRCLS_CNT ()
+    {
+        return MALE_WTRCLS_CNT;
     }
 
-    /**
-     * 
-     * @param dATASTDDE
-     *     The DATA_STD_DE
-     */
-    @JsonProperty("DATA_STD_DE")
-    public void setDATASTDDE(String dATASTDDE) {
-        this.dATASTDDE = dATASTDDE;
+    public void setMALE_WTRCLS_CNT (String MALE_WTRCLS_CNT)
+    {
+        this.MALE_WTRCLS_CNT = MALE_WTRCLS_CNT;
     }
 
-    /**
-     * 
-     * @return
-     *     The sIGUNNM
-     */
-    @JsonProperty("SIGUN_NM")
-    public String getSIGUNNM() {
-        return sIGUNNM;
+    public String getPBCTLT_PLC_NM ()
+    {
+        return PBCTLT_PLC_NM;
     }
 
-    /**
-     * 
-     * @param sIGUNNM
-     *     The SIGUN_NM
-     */
-    @JsonProperty("SIGUN_NM")
-    public void setSIGUNNM(String sIGUNNM) {
-        this.sIGUNNM = sIGUNNM;
+    public void setPBCTLT_PLC_NM (String PBCTLT_PLC_NM)
+    {
+        this.PBCTLT_PLC_NM = PBCTLT_PLC_NM;
     }
 
-    /**
-     * 
-     * @return
-     *     The sIGUNCD
-     */
-    @JsonProperty("SIGUN_CD")
-    public String getSIGUNCD() {
-        return sIGUNCD;
+    public String getREFINE_WGS84_LOGT ()
+    {
+        return REFINE_WGS84_LOGT;
     }
 
-    /**
-     * 
-     * @param sIGUNCD
-     *     The SIGUN_CD
-     */
-    @JsonProperty("SIGUN_CD")
-    public void setSIGUNCD(String sIGUNCD) {
-        this.sIGUNCD = sIGUNCD;
+    public void setREFINE_WGS84_LOGT (String REFINE_WGS84_LOGT)
+    {
+        this.REFINE_WGS84_LOGT = REFINE_WGS84_LOGT;
     }
 
-    /**
-     * 
-     * @return
-     *     The pUBLFACLTDIVNM
-     */
-    @JsonProperty("PUBLFACLT_DIV_NM")
-    public String getPUBLFACLTDIVNM() {
-        return pUBLFACLTDIVNM;
+    public String getREFINE_ROADNM_ADDR ()
+    {
+        return REFINE_ROADNM_ADDR;
     }
 
-    /**
-     * 
-     * @param pUBLFACLTDIVNM
-     *     The PUBLFACLT_DIV_NM
-     */
-    @JsonProperty("PUBLFACLT_DIV_NM")
-    public void setPUBLFACLTDIVNM(String pUBLFACLTDIVNM) {
-        this.pUBLFACLTDIVNM = pUBLFACLTDIVNM;
+    public void setREFINE_ROADNM_ADDR (String REFINE_ROADNM_ADDR)
+    {
+        this.REFINE_ROADNM_ADDR = REFINE_ROADNM_ADDR;
     }
 
-    /**
-     * 
-     * @return
-     *     The pBCTLTPLCNM
-     */
-    @JsonProperty("PBCTLT_PLC_NM")
-    public String getPBCTLTPLCNM() {
-        return pBCTLTPLCNM;
+    public String getREFINE_ZIP_CD ()
+    {
+        return REFINE_ZIP_CD;
     }
 
-    /**
-     * 
-     * @param pBCTLTPLCNM
-     *     The PBCTLT_PLC_NM
-     */
-    @JsonProperty("PBCTLT_PLC_NM")
-    public void setPBCTLTPLCNM(String pBCTLTPLCNM) {
-        this.pBCTLTPLCNM = pBCTLTPLCNM;
+    public void setREFINE_ZIP_CD (String REFINE_ZIP_CD)
+    {
+        this.REFINE_ZIP_CD = REFINE_ZIP_CD;
     }
 
-    /**
-     * 
-     * @return
-     *     The mALEFEMALETOILETYN
-     */
-    @JsonProperty("MALE_FEMALE_TOILET_YN")
-    public String getMALEFEMALETOILETYN() {
-        return mALEFEMALETOILETYN;
+    public String getMALE_FEMALE_TOILET_YN ()
+    {
+        return MALE_FEMALE_TOILET_YN;
     }
 
-    /**
-     * 
-     * @param mALEFEMALETOILETYN
-     *     The MALE_FEMALE_TOILET_YN
-     */
-    @JsonProperty("MALE_FEMALE_TOILET_YN")
-    public void setMALEFEMALETOILETYN(String mALEFEMALETOILETYN) {
-        this.mALEFEMALETOILETYN = mALEFEMALETOILETYN;
+    public void setMALE_FEMALE_TOILET_YN (String MALE_FEMALE_TOILET_YN)
+    {
+        this.MALE_FEMALE_TOILET_YN = MALE_FEMALE_TOILET_YN;
     }
 
-    /**
-     * 
-     * @return
-     *     The mALEWTRCLSCNT
-     */
-    @JsonProperty("MALE_WTRCLS_CNT")
-    public Integer getMALEWTRCLSCNT() {
-        return mALEWTRCLSCNT;
+    public String getMALE_DSPSN_UIL_CNT ()
+    {
+        return MALE_DSPSN_UIL_CNT;
     }
 
-    /**
-     * 
-     * @param mALEWTRCLSCNT
-     *     The MALE_WTRCLS_CNT
-     */
-    @JsonProperty("MALE_WTRCLS_CNT")
-    public void setMALEWTRCLSCNT(Integer mALEWTRCLSCNT) {
-        this.mALEWTRCLSCNT = mALEWTRCLSCNT;
+    public void setMALE_DSPSN_UIL_CNT (String MALE_DSPSN_UIL_CNT)
+    {
+        this.MALE_DSPSN_UIL_CNT = MALE_DSPSN_UIL_CNT;
     }
 
-    /**
-     * 
-     * @return
-     *     The mALEUILCNT
-     */
-    @JsonProperty("MALE_UIL_CNT")
-    public Integer getMALEUILCNT() {
-        return mALEUILCNT;
+    public String getREFINE_WGS84_LAT ()
+    {
+        return REFINE_WGS84_LAT;
     }
 
-    /**
-     * 
-     * @param mALEUILCNT
-     *     The MALE_UIL_CNT
-     */
-    @JsonProperty("MALE_UIL_CNT")
-    public void setMALEUILCNT(Integer mALEUILCNT) {
-        this.mALEUILCNT = mALEUILCNT;
+    public void setREFINE_WGS84_LAT (String REFINE_WGS84_LAT)
+    {
+        this.REFINE_WGS84_LAT = REFINE_WGS84_LAT;
     }
 
-    /**
-     * 
-     * @return
-     *     The mALEDSPSNWTRCLSCNT
-     */
-    @JsonProperty("MALE_DSPSN_WTRCLS_CNT")
-    public Integer getMALEDSPSNWTRCLSCNT() {
-        return mALEDSPSNWTRCLSCNT;
+    public String getINSTL_YY ()
+    {
+        return INSTL_YY;
     }
 
-    /**
-     * 
-     * @param mALEDSPSNWTRCLSCNT
-     *     The MALE_DSPSN_WTRCLS_CNT
-     */
-    @JsonProperty("MALE_DSPSN_WTRCLS_CNT")
-    public void setMALEDSPSNWTRCLSCNT(Integer mALEDSPSNWTRCLSCNT) {
-        this.mALEDSPSNWTRCLSCNT = mALEDSPSNWTRCLSCNT;
+    public void setINSTL_YY (String INSTL_YY)
+    {
+        this.INSTL_YY = INSTL_YY;
     }
 
-    /**
-     * 
-     * @return
-     *     The mALEDSPSNUILCNT
-     */
-    @JsonProperty("MALE_DSPSN_UIL_CNT")
-    public Integer getMALEDSPSNUILCNT() {
-        return mALEDSPSNUILCNT;
+    public String getMALE_UIL_CNT ()
+    {
+        return MALE_UIL_CNT;
     }
 
-    /**
-     * 
-     * @param mALEDSPSNUILCNT
-     *     The MALE_DSPSN_UIL_CNT
-     */
-    @JsonProperty("MALE_DSPSN_UIL_CNT")
-    public void setMALEDSPSNUILCNT(Integer mALEDSPSNUILCNT) {
-        this.mALEDSPSNUILCNT = mALEDSPSNUILCNT;
+    public void setMALE_UIL_CNT (String MALE_UIL_CNT)
+    {
+        this.MALE_UIL_CNT = MALE_UIL_CNT;
     }
 
-    /**
-     * 
-     * @return
-     *     The mALECHILDUSEWTRCLSCNT
-     */
-    @JsonProperty("MALE_CHILDUSE_WTRCLS_CNT")
-    public Integer getMALECHILDUSEWTRCLSCNT() {
-        return mALECHILDUSEWTRCLSCNT;
+    public String getMANAGE_INST_NM ()
+    {
+        return MANAGE_INST_NM;
     }
 
-    /**
-     * 
-     * @param mALECHILDUSEWTRCLSCNT
-     *     The MALE_CHILDUSE_WTRCLS_CNT
-     */
-    @JsonProperty("MALE_CHILDUSE_WTRCLS_CNT")
-    public void setMALECHILDUSEWTRCLSCNT(Integer mALECHILDUSEWTRCLSCNT) {
-        this.mALECHILDUSEWTRCLSCNT = mALECHILDUSEWTRCLSCNT;
+    public void setMANAGE_INST_NM (String MANAGE_INST_NM)
+    {
+        this.MANAGE_INST_NM = MANAGE_INST_NM;
     }
 
-    /**
-     * 
-     * @return
-     *     The mALECHILDUSEUILCNT
-     */
-    @JsonProperty("MALE_CHILDUSE_UIL_CNT")
-    public Integer getMALECHILDUSEUILCNT() {
-        return mALECHILDUSEUILCNT;
+    public String getMALE_CHILDUSE_WTRCLS_CNT ()
+    {
+        return MALE_CHILDUSE_WTRCLS_CNT;
     }
 
-    /**
-     * 
-     * @param mALECHILDUSEUILCNT
-     *     The MALE_CHILDUSE_UIL_CNT
-     */
-    @JsonProperty("MALE_CHILDUSE_UIL_CNT")
-    public void setMALECHILDUSEUILCNT(Integer mALECHILDUSEUILCNT) {
-        this.mALECHILDUSEUILCNT = mALECHILDUSEUILCNT;
+    public void setMALE_CHILDUSE_WTRCLS_CNT (String MALE_CHILDUSE_WTRCLS_CNT)
+    {
+        this.MALE_CHILDUSE_WTRCLS_CNT = MALE_CHILDUSE_WTRCLS_CNT;
     }
 
-    /**
-     * 
-     * @return
-     *     The fEMALEWTRCLSCNT
-     */
-    @JsonProperty("FEMALE_WTRCLS_CNT")
-    public Integer getFEMALEWTRCLSCNT() {
-        return fEMALEWTRCLSCNT;
+    public String getMALE_CHILDUSE_UIL_CNT ()
+    {
+        return MALE_CHILDUSE_UIL_CNT;
     }
 
-    /**
-     * 
-     * @param fEMALEWTRCLSCNT
-     *     The FEMALE_WTRCLS_CNT
-     */
-    @JsonProperty("FEMALE_WTRCLS_CNT")
-    public void setFEMALEWTRCLSCNT(Integer fEMALEWTRCLSCNT) {
-        this.fEMALEWTRCLSCNT = fEMALEWTRCLSCNT;
+    public void setMALE_CHILDUSE_UIL_CNT (String MALE_CHILDUSE_UIL_CNT)
+    {
+        this.MALE_CHILDUSE_UIL_CNT = MALE_CHILDUSE_UIL_CNT;
     }
 
-    /**
-     * 
-     * @return
-     *     The fEMALEDSPSNWTRCLSCNT
-     */
-    @JsonProperty("FEMALE_DSPSN_WTRCLS_CNT")
-    public Integer getFEMALEDSPSNWTRCLSCNT() {
-        return fEMALEDSPSNWTRCLSCNT;
+    public String getFEMALE_CHILDUSE_WTRCLS_CNT ()
+    {
+        return FEMALE_CHILDUSE_WTRCLS_CNT;
     }
 
-    /**
-     * 
-     * @param fEMALEDSPSNWTRCLSCNT
-     *     The FEMALE_DSPSN_WTRCLS_CNT
-     */
-    @JsonProperty("FEMALE_DSPSN_WTRCLS_CNT")
-    public void setFEMALEDSPSNWTRCLSCNT(Integer fEMALEDSPSNWTRCLSCNT) {
-        this.fEMALEDSPSNWTRCLSCNT = fEMALEDSPSNWTRCLSCNT;
+    public void setFEMALE_CHILDUSE_WTRCLS_CNT (String FEMALE_CHILDUSE_WTRCLS_CNT)
+    {
+        this.FEMALE_CHILDUSE_WTRCLS_CNT = FEMALE_CHILDUSE_WTRCLS_CNT;
     }
 
-    /**
-     * 
-     * @return
-     *     The fEMALECHILDUSEWTRCLSCNT
-     */
-    @JsonProperty("FEMALE_CHILDUSE_WTRCLS_CNT")
-    public Integer getFEMALECHILDUSEWTRCLSCNT() {
-        return fEMALECHILDUSEWTRCLSCNT;
+    public String getMALE_DSPSN_WTRCLS_CNT ()
+    {
+        return MALE_DSPSN_WTRCLS_CNT;
     }
 
-    /**
-     * 
-     * @param fEMALECHILDUSEWTRCLSCNT
-     *     The FEMALE_CHILDUSE_WTRCLS_CNT
-     */
-    @JsonProperty("FEMALE_CHILDUSE_WTRCLS_CNT")
-    public void setFEMALECHILDUSEWTRCLSCNT(Integer fEMALECHILDUSEWTRCLSCNT) {
-        this.fEMALECHILDUSEWTRCLSCNT = fEMALECHILDUSEWTRCLSCNT;
+    public void setMALE_DSPSN_WTRCLS_CNT (String MALE_DSPSN_WTRCLS_CNT)
+    {
+        this.MALE_DSPSN_WTRCLS_CNT = MALE_DSPSN_WTRCLS_CNT;
     }
 
-    /**
-     * 
-     * @return
-     *     The mANAGEINSTNM
-     */
-    @JsonProperty("MANAGE_INST_NM")
-    public String getMANAGEINSTNM() {
-        return mANAGEINSTNM;
+    public String getFEMALE_DSPSN_WTRCLS_CNT ()
+    {
+        return FEMALE_DSPSN_WTRCLS_CNT;
     }
 
-    /**
-     * 
-     * @param mANAGEINSTNM
-     *     The MANAGE_INST_NM
-     */
-    @JsonProperty("MANAGE_INST_NM")
-    public void setMANAGEINSTNM(String mANAGEINSTNM) {
-        this.mANAGEINSTNM = mANAGEINSTNM;
+    public void setFEMALE_DSPSN_WTRCLS_CNT (String FEMALE_DSPSN_WTRCLS_CNT)
+    {
+        this.FEMALE_DSPSN_WTRCLS_CNT = FEMALE_DSPSN_WTRCLS_CNT;
     }
 
-    /**
-     * 
-     * @return
-     *     The mANAGEINSTTELNO
-     */
-    @JsonProperty("MANAGE_INST_TELNO")
-    public String getMANAGEINSTTELNO() {
-        return mANAGEINSTTELNO;
+    public String getDATA_STD_DE ()
+    {
+        return DATA_STD_DE;
     }
 
-    /**
-     * 
-     * @param mANAGEINSTTELNO
-     *     The MANAGE_INST_TELNO
-     */
-    @JsonProperty("MANAGE_INST_TELNO")
-    public void setMANAGEINSTTELNO(String mANAGEINSTTELNO) {
-        this.mANAGEINSTTELNO = mANAGEINSTTELNO;
+    public void setDATA_STD_DE (String DATA_STD_DE)
+    {
+        this.DATA_STD_DE = DATA_STD_DE;
     }
 
-    /**
-     * 
-     * @return
-     *     The oPENTM
-     */
-    @JsonProperty("OPEN_TM")
-    public Object getOPENTM() {
-        return oPENTM;
+    public String getSIGUN_CD ()
+    {
+        return SIGUN_CD;
     }
 
-    /**
-     * 
-     * @param oPENTM
-     *     The OPEN_TM
-     */
-    @JsonProperty("OPEN_TM")
-    public void setOPENTM(Object oPENTM) {
-        this.oPENTM = oPENTM;
+    public void setSIGUN_CD (String SIGUN_CD)
+    {
+        this.SIGUN_CD = SIGUN_CD;
     }
 
-    /**
-     * 
-     * @return
-     *     The oPENTMINFO
-     */
-    @JsonProperty("OPEN_TM_INFO")
-    public Object getOPENTMINFO() {
-        return oPENTMINFO;
+    public String getOPEN_TM ()
+    {
+        return OPEN_TM;
     }
 
-    /**
-     * 
-     * @param oPENTMINFO
-     *     The OPEN_TM_INFO
-     */
-    @JsonProperty("OPEN_TM_INFO")
-    public void setOPENTMINFO(Object oPENTMINFO) {
-        this.oPENTMINFO = oPENTMINFO;
+    public void setOPEN_TM (String OPEN_TM)
+    {
+        this.OPEN_TM = OPEN_TM;
     }
 
-    /**
-     * 
-     * @return
-     *     The iNSTLYY
-     */
-    @JsonProperty("INSTL_YY")
-    public Object getINSTLYY() {
-        return iNSTLYY;
+    public String getOPEN_TM_INFO ()
+    {
+        return OPEN_TM_INFO;
     }
 
-    /**
-     * 
-     * @param iNSTLYY
-     *     The INSTL_YY
-     */
-    @JsonProperty("INSTL_YY")
-    public void setINSTLYY(Object iNSTLYY) {
-        this.iNSTLYY = iNSTLYY;
+    public void setOPEN_TM_INFO (String OPEN_TM_INFO)
+    {
+        this.OPEN_TM_INFO = OPEN_TM_INFO;
     }
 
-    /**
-     * 
-     * @return
-     *     The rEFINELOTNOADDR
-     */
-    @JsonProperty("REFINE_LOTNO_ADDR")
-    public String getREFINELOTNOADDR() {
-        return rEFINELOTNOADDR;
+    public String getMANAGE_INST_TELNO ()
+    {
+        return MANAGE_INST_TELNO;
     }
 
-    /**
-     * 
-     * @param rEFINELOTNOADDR
-     *     The REFINE_LOTNO_ADDR
-     */
-    @JsonProperty("REFINE_LOTNO_ADDR")
-    public void setREFINELOTNOADDR(String rEFINELOTNOADDR) {
-        this.rEFINELOTNOADDR = rEFINELOTNOADDR;
+    public void setMANAGE_INST_TELNO (String MANAGE_INST_TELNO)
+    {
+        this.MANAGE_INST_TELNO = MANAGE_INST_TELNO;
     }
 
-    /**
-     * 
-     * @return
-     *     The rEFINEROADNMADDR
-     */
-    @JsonProperty("REFINE_ROADNM_ADDR")
-    public String getREFINEROADNMADDR() {
-        return rEFINEROADNMADDR;
+    public String getFEMALE_WTRCLS_CNT ()
+    {
+        return FEMALE_WTRCLS_CNT;
     }
 
-    /**
-     * 
-     * @param rEFINEROADNMADDR
-     *     The REFINE_ROADNM_ADDR
-     */
-    @JsonProperty("REFINE_ROADNM_ADDR")
-    public void setREFINEROADNMADDR(String rEFINEROADNMADDR) {
-        this.rEFINEROADNMADDR = rEFINEROADNMADDR;
+    public void setFEMALE_WTRCLS_CNT (String FEMALE_WTRCLS_CNT)
+    {
+        this.FEMALE_WTRCLS_CNT = FEMALE_WTRCLS_CNT;
     }
 
-    /**
-     * 
-     * @return
-     *     The rEFINEZIPCD
-     */
-    @JsonProperty("REFINE_ZIP_CD")
-    public String getREFINEZIPCD() {
-        return rEFINEZIPCD;
+    public String getSIGUN_NM ()
+    {
+        return SIGUN_NM;
     }
 
-    /**
-     * 
-     * @param rEFINEZIPCD
-     *     The REFINE_ZIP_CD
-     */
-    @JsonProperty("REFINE_ZIP_CD")
-    public void setREFINEZIPCD(String rEFINEZIPCD) {
-        this.rEFINEZIPCD = rEFINEZIPCD;
+    public void setSIGUN_NM (String SIGUN_NM)
+    {
+        this.SIGUN_NM = SIGUN_NM;
     }
 
-    /**
-     * 
-     * @return
-     *     The rEFINEWGS84LOGT
-     */
-    @JsonProperty("REFINE_WGS84_LOGT")
-    public Double getREFINEWGS84LOGT() {
-        return rEFINEWGS84LOGT;
+    public String getREFINE_LOTNO_ADDR ()
+    {
+        return REFINE_LOTNO_ADDR;
     }
 
-    /**
-     * 
-     * @param rEFINEWGS84LOGT
-     *     The REFINE_WGS84_LOGT
-     */
-    @JsonProperty("REFINE_WGS84_LOGT")
-    public void setREFINEWGS84LOGT(Double rEFINEWGS84LOGT) {
-        this.rEFINEWGS84LOGT = rEFINEWGS84LOGT;
+    public void setREFINE_LOTNO_ADDR (String REFINE_LOTNO_ADDR)
+    {
+        this.REFINE_LOTNO_ADDR = REFINE_LOTNO_ADDR;
     }
 
-    /**
-     * 
-     * @return
-     *     The rEFINEWGS84LAT
-     */
-    @JsonProperty("REFINE_WGS84_LAT")
-    public Double getREFINEWGS84LAT() {
-        return rEFINEWGS84LAT;
+    public String getPUBLFACLT_DIV_NM ()
+    {
+        return PUBLFACLT_DIV_NM;
     }
 
-    /**
-     * 
-     * @param rEFINEWGS84LAT
-     *     The REFINE_WGS84_LAT
-     */
-    @JsonProperty("REFINE_WGS84_LAT")
-    public void setREFINEWGS84LAT(Double rEFINEWGS84LAT) {
-        this.rEFINEWGS84LAT = rEFINEWGS84LAT;
+    public void setPUBLFACLT_DIV_NM (String PUBLFACLT_DIV_NM)
+    {
+        this.PUBLFACLT_DIV_NM = PUBLFACLT_DIV_NM;
     }
 
-    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
+    @Override
+    public String toString()
+    {
+        return "ClassPojo [MALE_WTRCLS_CNT = "+MALE_WTRCLS_CNT+", PBCTLT_PLC_NM = "+PBCTLT_PLC_NM+", REFINE_WGS84_LOGT = "+REFINE_WGS84_LOGT+", REFINE_ROADNM_ADDR = "+REFINE_ROADNM_ADDR+", REFINE_ZIP_CD = "+REFINE_ZIP_CD+", MALE_FEMALE_TOILET_YN = "+MALE_FEMALE_TOILET_YN+", MALE_DSPSN_UIL_CNT = "+MALE_DSPSN_UIL_CNT+", REFINE_WGS84_LAT = "+REFINE_WGS84_LAT+", INSTL_YY = "+INSTL_YY+", MALE_UIL_CNT = "+MALE_UIL_CNT+", MANAGE_INST_NM = "+MANAGE_INST_NM+", MALE_CHILDUSE_WTRCLS_CNT = "+MALE_CHILDUSE_WTRCLS_CNT+", MALE_CHILDUSE_UIL_CNT = "+MALE_CHILDUSE_UIL_CNT+", FEMALE_CHILDUSE_WTRCLS_CNT = "+FEMALE_CHILDUSE_WTRCLS_CNT+", MALE_DSPSN_WTRCLS_CNT = "+MALE_DSPSN_WTRCLS_CNT+", FEMALE_DSPSN_WTRCLS_CNT = "+FEMALE_DSPSN_WTRCLS_CNT+", DATA_STD_DE = "+DATA_STD_DE+", SIGUN_CD = "+SIGUN_CD+", OPEN_TM = "+OPEN_TM+", OPEN_TM_INFO = "+OPEN_TM_INFO+", MANAGE_INST_TELNO = "+MANAGE_INST_TELNO+", FEMALE_WTRCLS_CNT = "+FEMALE_WTRCLS_CNT+", SIGUN_NM = "+SIGUN_NM+", REFINE_LOTNO_ADDR = "+REFINE_LOTNO_ADDR+", PUBLFACLT_DIV_NM = "+PUBLFACLT_DIV_NM+"]";
     }
-
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }
-
 }

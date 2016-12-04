@@ -1,7 +1,9 @@
 
 package koreatech.cse.domain.gyeonggi;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import javax.annotation.Generated;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
@@ -11,35 +13,24 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-public class Head
+public class RestRoomG
 {
-    private RESULT RESULT;
+    private Publtolt Publtolt;
 
-    private String list_total_count;
-
-    public RESULT getRESULT ()
+    public Publtolt getPubltolt ()
     {
-        return RESULT;
+        return Publtolt;
     }
 
-    public void setRESULT (RESULT RESULT)
+    public void setPubltolt (Publtolt Publtolt)
     {
-        this.RESULT = RESULT;
-    }
-
-    public String getList_total_count ()
-    {
-        return list_total_count;
-    }
-
-    public void setList_total_count (String list_total_count)
-    {
-        this.list_total_count = list_total_count;
+        this.Publtolt = Publtolt;
     }
 
     @Override
     public String toString()
     {
-        return "ClassPojo [RESULT = "+RESULT+", list_total_count = "+list_total_count+"]";
+        return "ClassPojo [Publtolt = "+Publtolt+"]";
     }
 }
+
