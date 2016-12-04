@@ -22,14 +22,30 @@
 -->
 <!-- items 리스트를 이용해 foreach 를 이용하 정보를 가져옴 -->
 
-${restRoom.searchPublicToiletPOIService.listTotalCount}</br>
-
-
-
-
-<c:forEach var="row" items="${restRoom.searchPublicToiletPOIService.row}">
-    ${row} <br/><br/>
+<c:forEach var="row" items="${restRoom}">
+    ${row.FNAME}, ${row.XWGS84} , ${row.YWGS84} <br/><br/>
 </c:forEach>
+
+
+
+<!--
+    "P_IDX",
+    "P_PARK",
+    "P_LIST_CONTENT",
+    "P_ADDR",
+    "P_ZONE",
+    "P_DIVISION",
+    "P_IMG",
+    "P_ADMINTEL",
+    "LONGITUDE",
+    "LATITUDE",
+    "G_LONGITUDE",
+    "G_LATITUDE"
+-->
+<c:forEach var="row" items="${park}">
+    ${row.PPARK}, ${row.LONGITUDE} , ${row.LATITUDE} <br/><br/>
+</c:forEach>
+
 
 
 </body>

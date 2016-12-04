@@ -1,26 +1,18 @@
 package koreatech.cse.controller.rest;
 
-import koreatech.cse.domain.gyeonggi.RestRoom;
+import koreatech.cse.domain.gyeonggi.RestRoomG;
+import koreatech.cse.domain.gyeonggi.Row;
 
-import koreatech.cse.service.UserService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
-import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
-
-@RestController
+@Controller
 @RequestMapping("/gyeonggi")
 public class GRestRoomController {
     private static String gyeonggi_restroom_url = "http://openapi.gg.go.kr/Publtolt";
@@ -33,17 +25,15 @@ public class GRestRoomController {
     public String getRestRoomWithJustAPIKey(Model model,
                               @RequestParam(name = "searchWord") String searchWord) { //jsp에서 입력한 searchword 를 받아와 url 끝에 들어감.
         RestTemplate restTemplate = new RestTemplate();
-        RestRoom restRoom = null;
+        RestRoomG restRoom = null;
         try {
             System.out.println("ok 1");
-            System.out.println(searchWord);
-            //jsp에서 searchword 받아와 url 끝에 들어옴
-            /*ResponseEntity<RestRoom> restRoomResponseEntity
-                    = restTemplate.getForEntity(gyeonggi_restroom_url + "?pSize=" + searchWord + "&Type=json" + "&KEY=" + gyeonggi_rest_api_key, RestRoom.class);
-            */
+           // System.out.println(searchWord);
 
-            ResponseEntity<RestRoom> restRoomResponseEntity
-                    = restTemplate.getForEntity("http://openapi.gg.go.kr/Publtolt?pSize=3&KEY=a5d578e7061b4047b39c4fa09142024a&Type=json",RestRoom.class);
+
+
+            ResponseEntity<RestRoomG> restRoomResponseEntity
+                    = restTemplate.getForEntity("http://openapi.gg.go.kr/CityPark?KEY=a5d578e7061b4047b39c4fa09142024a&pSize=10&Type=xml&pIndex=2/",RestRoomG.class);
 
 
 
@@ -54,6 +44,11 @@ public class GRestRoomController {
             System.out.println("ok 2");
             System.out.println(restRoom);
 
+
+            Row[] row = restRoom.getPubltolt().getRow();
+
+
+            System.out.println(row.toString());
             System.out.println("ok 3");
         } catch (HttpClientErrorException e) {
             System.out.println(e.getStatusCode() + ": " + e.getStatusText());
