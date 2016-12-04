@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+
+        <!--SENSOR_ID    언더스코어는 _  밑줄 ,  밑줄을 CamelCase로 매핑해라  낙타등모양으로 언더스코어 다음 문자를 대문자-->
+        <setting name="mapUnderscoreToCamelCase" value="true" />
+    </settings>
+</configuration>
