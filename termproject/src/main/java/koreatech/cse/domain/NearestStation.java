@@ -1,14 +1,26 @@
 package koreatech.cse.domain;
 
+import java.util.HashMap;
+
 /**
  * Created by Yimo on 2016-12-03.
  */
 public class NearestStation {
 
     private String Pname;
-    private String[] station = new String[3];
-    private int[] distance = new int[3];
+    HashMap<String, Double> station = new HashMap<String, Double>();
 
+
+    //private HashMap<String , Double> station;
+
+
+    public HashMap<String, Double> getStation() {
+        return station;
+    }
+
+    public void setStation(HashMap<String, Double> station) {
+        this.station = station;
+    }
 
     public String getPname() {
         return Pname;
@@ -18,21 +30,7 @@ public class NearestStation {
         Pname = pname;
     }
 
-    public String[] getStation() {
-        return station;
-    }
 
-    public void setStation(String[] station) {
-        this.station = station;
-    }
-
-    public int[] getDistance() {
-        return distance;
-    }
-
-    public void setDistance(int[] distance) {
-        this.distance = distance;
-    }
 
     public NearestStation() {
 

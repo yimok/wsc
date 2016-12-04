@@ -306,4 +306,6 @@ public class PRow {
         this.additionalProperties.put(name, value);
     }
 
+    public PRow() {
+    }
 }

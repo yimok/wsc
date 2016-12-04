@@ -1,11 +1,8 @@
 package koreatech.cse.controller.rest;
 
-import koreatech.cse.domain.BigPark;
-import koreatech.cse.domain.NearestStation;
-import koreatech.cse.domain.Output;
-import koreatech.cse.domain.Station.SRow;
-import koreatech.cse.domain.Station.Station;
-import koreatech.cse.domain.StationList;
+import koreatech.cse.domain.*;
+import koreatech.cse.domain.daumlocation.CurrentLocation;
+import koreatech.cse.domain.daumlocation.locItem;
 import koreatech.cse.domain.daummap.Item;
 import koreatech.cse.domain.daummap.TrainStation;
 import koreatech.cse.domain.seoulbicycle.BRow;
@@ -25,23 +22,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 @Controller
 @RequestMapping("/seoul")
 public class SRestRoomController {
-    private static String gyeonggi_restroom_url = "http://openAPI.seoul.go.kr:8088";
-
-    private static String gyeonggi_rest_api_key = "664b6b4962646c61313234774c646550";
-
 
 
     //일반 api 키가져오는거
-    @RequestMapping("/parkinfo")
-    public String getRestRoomWithJustAPIKey(Model model,
-                                            @RequestParam(name = "searchWord") String searchWord) { //jsp에서 입력한 searchword 를 받아와 url 끝에 들어감.
+    @RequestMapping(value = "/park/info" , method= RequestMethod.GET, produces="application/json" )
+    public ResponseEntity<ArrayList<Output>> getRestRoomWithJustAPIKey(Model model){
+                                           // @RequestParam(name = "searchWord") String searchWord) { //jsp에서 입력한 searchword 를 받아와 url 끝에 들어감.
         RestTemplate restTemplate = new RestTemplate();
         RestTemplate restTemplate2 = new RestTemplate();
         RestTemplate restTemplate3 = new RestTemplate();
@@ -49,10 +40,9 @@ public class SRestRoomController {
         SeoulPark Park = null;
         SeoulBicycle Bicycle = null;
 
+        ArrayList<Output> list = new ArrayList<Output>();
 
         try {
-            System.out.println("ok 1");
-            System.out.println(searchWord);
 
 
             //서울공원
@@ -61,7 +51,7 @@ public class SRestRoomController {
             Park = parkResponseEntity.getBody();
 
             List<PRow> rowList2 = Park.getSearchParkInfoService().getPRow();
-            ArrayList<Output> list = new ArrayList<Output>();
+
 
 
 
@@ -94,12 +84,6 @@ public class SRestRoomController {
             Bigp8.setPname("여의도공원");Bigp9.setRadius(1001);
             BPlist.add(Bigp9);
 
-            /*
-            for (BigPark row : BPlist)
-            {
-                System.out.println(row.getPname() + "," + row.getRadius());
-            }
-            */
 
             ResponseEntity<SeoulBicycle> bicycleResponseEntity
                     = restTemplate3.getForEntity("http://openapi.seoul.go.kr:8088/664b6b4962646c61313234774c646550/json/SebcBicycleRetalKor/1/147/",SeoulBicycle.class);
@@ -155,25 +139,6 @@ public class SRestRoomController {
             }
 
 
-
-
-          /*
-            for (BRow row : rowList3) {
-                //System.out.println(row.getNAMEKOR() + " ... " + row.getLATITUDE()+ "," + row.getLONGITUDE());
-                System.out.println(" --------------");
-                System.out.println( row.getLATITUDE().equals("") );
-
-            }
-
-            for (Row row : rowList) {
-                System.out.println(row.getFNAME() + " ... " + row.getXWGS84() + "," + row.getYWGS84());
-
-            }
-
-            for (PRow row : rowList2) {
-                System.out.println( "{content: '<div>" + row.getPPARK() +"</div>'," +   " latlng: new daum.maps.LatLng(" + row.getLATITUDE()+ "," +  row.getLONGITUDE()+")}," ) ;
-
-            }*/
 
             for (PRow Prow : rowList2) {
                // System.out.println( Prow.getPPARK()   + Prow.getLATITUDE() +  Prow.getLONGITUDE() ) ;
@@ -393,9 +358,6 @@ public class SRestRoomController {
             }
 
 
-          //  System.out.println(list);
-
-
             double distanceMeter = distance(33.4517414902911, 126.5691825710239 , 33.45176429772117, 126.57055917117545, "meter");
             double distanceMeter2 = distance(33.4517414902911, 126.5691825710239 , 33.451769726358705, 126.57212945781733, "meter");
             System.out.println(distanceMeter2);
@@ -410,19 +372,26 @@ public class SRestRoomController {
 
 
 
+        /*
         System.out.println("ok 4");
         //jsp에서 searchword 변수를 쓸수 있도록 넘겨줌
         model.addAttribute("searchWord", searchWord);
         model.addAttribute("restRoom",  restRoom.getSearchPublicToiletPOIService().getRow());
         System.out.println("restRoom = " + restRoom);
         return "daumBook";
+        */
+
+
+
+        return new  ResponseEntity<ArrayList<Output>>(list , HttpStatus.OK);
     }
 
 
     //일반 api 키가져오는거
-    @RequestMapping(value = "/parkneareststation", method= RequestMethod.GET, produces="application/json")
-    public  ResponseEntity<List<StationList>> getParkWithJustAPIKey(Model model,
-                                            @RequestParam(name = "searchWord") String searchWord) { //jsp에서 입력한 searchword 를 받아와 url 끝에 들어감.
+    @RequestMapping(value = "/park/neareststation", method= RequestMethod.GET, produces="application/json")
+    public  ResponseEntity< List<NearestStation>> getParkWithJustAPIKey(Model model){
+
+                                           // @RequestParam(name = "searchWord") String searchWord) { //jsp에서 입력한 searchword 를 받아와 url 끝에 들어감.
 
         RestTemplate PrestTemplate = new RestTemplate();
         RestTemplate TrestTemplate = new RestTemplate();
@@ -432,7 +401,9 @@ public class SRestRoomController {
         SeoulPark Park = null;
         TrainStation Station = null;
         TrainStation Station2 = null;
-        ArrayList<NearestStation> nlist = new ArrayList<NearestStation>();
+        List<NearestStation> nlist = new ArrayList<NearestStation>();
+
+        List<PRow> ProwList = new ArrayList<PRow>();
 
         try{
             //서울공원
@@ -440,8 +411,7 @@ public class SRestRoomController {
                     = PrestTemplate.getForEntity("http://openapi.seoul.go.kr:8088/664b6b4962646c61313234774c646550/json/SearchParkInfoService/1/97/",SeoulPark.class);
             Park = parkResponseEntity.getBody();
 
-            List<PRow> ProwList = Park.getSearchParkInfoService().getPRow();
-
+            ProwList = Park.getSearchParkInfoService().getPRow();
 
          //   System.out.println("check 1");
             for(int i = 1; i < 10 ;i++)
@@ -454,15 +424,17 @@ public class SRestRoomController {
                     if(i == 2)
                     {
 
+
+                        //다음 지도 검색 api
                         ResponseEntity<TrainStation> trainStationResponseEntity
-                                = TrestTemplate.getForEntity("https://apis.daum.net/local/v1/search/keyword.json?apikey=26750afb73628175ccfd453dbd9fef08&" +
+                                = TrestTemplate.getForEntity("https://apis.daum.net/local/v1/search/keyword.json?apikey=c94b2c7844b3c81ff3c0784ed0c89114&" +
                                 "location=37.5347931041467,126.877036107442&radius=12000&query=" + i +"호선 지하철역&page=" + j ,TrainStation.class);
                         Station = trainStationResponseEntity.getBody();
                         List<Item> temp = Station.getChannel().getItem();
 
 
                         ResponseEntity<TrainStation> trainStation2ResponseEntity
-                                = T2restTemplate.getForEntity("https://apis.daum.net/local/v1/search/keyword.json?apikey=26750afb73628175ccfd453dbd9fef08&" +
+                                = T2restTemplate.getForEntity("https://apis.daum.net/local/v1/search/keyword.json?apikey=c94b2c7844b3c81ff3c0784ed0c89114&" +
                                 "location=37.573951,127.090733&radius=12000&query=" + i +"호선 지하철역&page=" + j ,TrainStation.class);
                         Station2 = trainStationResponseEntity.getBody();
                         List<Item> temp2 = Station2.getChannel().getItem();
@@ -495,7 +467,7 @@ public class SRestRoomController {
 
                      //   System.out.println("check 3");
                     ResponseEntity<TrainStation> trainStationResponseEntity
-                            = TrestTemplate.getForEntity("https://apis.daum.net/local/v1/search/keyword.json?apikey=26750afb73628175ccfd453dbd9fef08&" +
+                            = TrestTemplate.getForEntity("https://apis.daum.net/local/v1/search/keyword.json?apikey=c94b2c7844b3c81ff3c0784ed0c89114&" +
                             "location=37.553950352464,126.989931277455&radius=20000&query=" + i +"호선 지하철역&page=" + j ,TrainStation.class);
                     Station = trainStationResponseEntity.getBody();
                     List<Item> temp = Station.getChannel().getItem();
@@ -538,10 +510,150 @@ public class SRestRoomController {
         }
 
 
-        return new ResponseEntity<List<StationList>>(slist , HttpStatus.OK);
+        for(PRow prow : ProwList)
+        {
+
+
+            NearestStation temp = new NearestStation();
+            temp.setPname(prow.getPPARK());
+            HashMap<String, Double> temp2 = new HashMap<String, Double>();
+
+            HashMap<String,Double> map = new HashMap<String,Double>();
+            ValueComparator bvc =  new ValueComparator(map);
+            TreeMap<String,Double> sorted_map = new TreeMap<String,Double>(bvc);
+
+
+            for (StationList srow : slist) {
+
+                double distanceMeter = distance(prow.getLATITUDE() , prow.getLONGITUDE() ,
+                        Double.parseDouble(srow.getxWGS84()) , Double.parseDouble(srow.getyWGS84()) , "meter");
+
+
+                map.put(srow.getSname(), distanceMeter);
+
+             }
+
+            sorted_map.putAll(map);
+
+            int count = 0;
+            for (Map.Entry<String,Double> entry : sorted_map.entrySet()) {
+                //정렬한 리스트에서 순번을 배열번호로 변경하여 원본 리스트에서 추출
+
+                if(count == 3) break;
+
+                    temp2.put(entry.getKey(), map.get(entry.getKey()));
+
+
+                  //  System.out.println(entry.getKey()+" : "+map.get(entry.getKey()));
+
+                count ++;
+
+            }
+
+            temp.setStation(temp2);
+
+
+
+
+            nlist.add(temp);
+
+
+        }
+
+        for(NearestStation row :nlist )
+        {
+           System.out.println( row.getPname() + ","+ row.getStation() );
+        }
+
+
+        return new ResponseEntity<List<NearestStation>>(nlist , HttpStatus.OK);
        // return "daumBook";
        // return JSONResponseUtil.getJSONResponse(result);
     }
+
+
+
+
+
+
+    @RequestMapping(value = "/park/nearest", method= RequestMethod.GET, produces="application/json")
+    public  ResponseEntity< NearestPark> getParkWithJustAPIKey(Model model,
+                                                                        @RequestParam(name = "address") String address,
+                                                                        @RequestParam(name = "parkc") String parkc) { //jsp에서 입력한 searchword 를 받아와 url 끝에 들어감.
+
+        RestTemplate PrestTemplate = new RestTemplate();
+        RestTemplate CurrentLocTemplate = new RestTemplate();
+        SeoulPark Park = null;
+        CurrentLocation Loaction = null;
+
+        //해쉬맵 - Key:공원명 , value:거리
+        HashMap<String,Double> map = new HashMap<String,Double>();
+        ValueComparator bvc =  new ValueComparator(map);
+        TreeMap<String,Double> sorted_map = new TreeMap<String,Double>(bvc);
+        HashMap<String, Double> temp = new HashMap<String, Double>();
+
+        List<locItem> curlocList = new ArrayList<locItem>();
+
+        NearestPark myPark = new NearestPark();
+
+        try {
+            //서울공원
+            ResponseEntity<SeoulPark> parkResponseEntity
+                    = PrestTemplate.getForEntity("http://openapi.seoul.go.kr:8088/664b6b4962646c61313234774c646550/json/SearchParkInfoService/1/97/", SeoulPark.class);
+            Park = parkResponseEntity.getBody();
+            List<PRow> ProwList = Park.getSearchParkInfoService().getPRow();
+
+
+            //시작위치 좌표가져오기
+            ResponseEntity<CurrentLocation> currentLocResponseEntity
+                    = CurrentLocTemplate.getForEntity("https://apis.daum.net/local/geo/addr2coord?apikey=c94b2c7844b3c81ff3c0784ed0c89114&q=" + address +"&output=json", CurrentLocation.class);
+            Loaction = currentLocResponseEntity.getBody();
+
+
+            curlocList = Loaction.getChannel().getItem();
+
+
+            for(PRow row : ProwList)
+            {
+                double distanceMeter = distance(row.getLATITUDE() , row.getLONGITUDE() ,
+                        curlocList.get(0).getLat() , curlocList.get(0).getLng() , "meter");
+
+                      map.put(row.getPPARK(), distanceMeter);
+
+            }
+
+            sorted_map.putAll(map);
+
+            int count = 0;
+            for (Map.Entry<String,Double> entry : sorted_map.entrySet()) {
+                //정렬한 리스트에서 순번을 배열번호로 변경하여 원본 리스트에서 추출
+
+                if(count == Integer.parseInt(parkc)) break;
+                temp.put(entry.getKey(), map.get(entry.getKey()));
+             //   System.out.println(entry.getKey()+" : "+map.get(entry.getKey()));
+
+                count ++;
+
+            }
+
+
+
+
+        } catch (HttpClientErrorException e) {
+            System.out.println(e.getStatusCode() + ": " + e.getStatusText());
+        }
+
+
+
+        myPark.setCurlocation(curlocList.get(0).getTitle());
+        myPark.setCurx(curlocList.get(0).getLat());
+        myPark.setCury(curlocList.get(0).getLng());
+        myPark.setPark(temp);
+
+
+        return new ResponseEntity<NearestPark>(myPark , HttpStatus.OK);
+    }
+
 
 
 
@@ -577,6 +689,27 @@ public class SRestRoomController {
 
 
 }
+
+
+
+class ValueComparator implements Comparator<String> {
+
+    Map<String, Double> base;
+
+    public ValueComparator(Map<String, Double> base) {
+        this.base = base;
+    }
+
+    // Note: this comparator imposes orderings that are inconsistent with equals.
+    public int compare(String a, String b) {
+        if (base.get(a) <= base.get(b)) { //반대로 하면 오름차순 <=
+            return -1;
+        } else {
+            return 1;
+        } // returning 0 would merge keys
+    }
+}
+
 
 
 
