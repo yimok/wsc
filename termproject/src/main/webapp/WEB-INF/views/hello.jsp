@@ -9,16 +9,20 @@
 
 
 
-<form action="/seoul/parkinfo" method="GET">
-    <input type="text" name="searchWord" placeholder="검색어"/>
-    <input type="submit" value="restroom">
+<form action="/seoul/park/info" method="GET">
+   <input type="submit" value="ParkInfo">
 </form>
 
-<form action="/seoul/parkneareststation" method="GET">
-    <input type="text" name="searchWord" placeholder="검색어"/>
-    <input type="submit" value="park">
+<form action="/seoul/park/neareststation" method="GET">
+    <input type="submit" value="NearestStation">
 </form>
 
+
+<form action="/seoul/park/nearest" method="GET">
+    <input type="text" name="address" placeholder="주소를 입력하세요 (ex:노원구)"/>
+    <input type="text" name="parkc" placeholder="출력할 공원수를 입력하세요"/>
+    <input type="submit" value="NearestPark">
+</form>
 
 </body>
 </html>

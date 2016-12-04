@@ -351,11 +351,13 @@ public class SRestRoomController {
 
             }
 
+            /*
             System.out.println("--------park info--------");
             for (Output row3 : list) {
                 System.out.println(row3.getPname() + " ... " + row3.getxWGS84() + "," + row3.getyWGS84()+"," + row3.getRcount() + "," + row3.getBcount());
 
             }
+            */
 
 
             double distanceMeter = distance(33.4517414902911, 126.5691825710239 , 33.45176429772117, 126.57055917117545, "meter");
@@ -502,13 +504,13 @@ public class SRestRoomController {
 
 
 
-
+/*
         for (StationList row : slist) {
 
             System.out.println(row.getSname()+ "..."+row.getxWGS84()+ "," + row.getyWGS84());
 
         }
-
+*/
 
         for(PRow prow : ProwList)
         {
