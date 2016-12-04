@@ -2,6 +2,7 @@ package koreatech.cse.service;
 
 import koreatech.cse.domain.Authority;
 import koreatech.cse.domain.User;
+import koreatech.cse.domain.daumLocal.DaumLocal;
 import koreatech.cse.repository.AuthorityMapper;
 import koreatech.cse.repository.UserMapper;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,6 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.List;
 
@@ -57,5 +59,4 @@ public class UserService implements UserDetailsService {
         System.out.println("user = " + user);
         return user;
     }
-
 }
