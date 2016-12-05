@@ -20,9 +20,16 @@
 
 <form action="/seoul/park/nearest" method="GET">
     <input type="text" name="address" placeholder="주소를 입력하세요 (ex:노원구)"/>
-    <input type="text" name="parkc" placeholder="출력할 공원수를 입력하세요"/>
+    <input type="text" name="parkc" placeholder="출력할 공원수"/>
     <input type="submit" value="NearestPark">
 </form>
+
+<form action="/my/park/view" method="GET">
+    <input type="text" name="address" placeholder="주소를 입력하세요 (ex:노원구)"/>
+    <input type="text" name="parkc" placeholder="출력할 공원수"/>
+    <input type="submit" value="MyParkView">
+</form>
+
 
 </body>
 </html>
