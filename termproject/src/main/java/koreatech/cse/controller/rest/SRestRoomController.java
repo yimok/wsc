@@ -35,7 +35,14 @@ import java.util.*;
 public class SRestRoomController {
 
 
-    //일반 api 키가져오는거
+    /* 사용 API
+       서울시 공원 API : http://data.seoul.go.kr/openinf/openapiview.jsp?infId=OA-394
+       서울시 공중화장실 API : http://data.seoul.go.kr/openinf/openapiview.jsp?infId=OA-162
+       서울시 자전거 대여소 정보 API : http://data.seoul.go.kr/openinf/openapiview.jsp?infId=OA-12969
+
+        결과
+        공원에 인접한 자전거 대여소, 화장실을 카운트하여 공원별 현황을 나타내줌
+     */
     @RequestMapping(value = "/park/info" , method= RequestMethod.GET, produces="application/json" )
     public ResponseEntity<ArrayList<Output>> getRestRoomWithJustAPIKey(Model model){
 
@@ -358,16 +365,6 @@ public class SRestRoomController {
 
             }
 
-            /*
-            System.out.println("--------park info--------");
-            for (Output row3 : list) {
-                System.out.println(row3.getPname() + " ... " + row3.getxWGS84() + "," + row3.getyWGS84()+"," + row3.getRcount() + "," + row3.getBcount());
-
-            }
-            */
-
-
-
 
         } catch (HttpClientErrorException e) {
             System.out.println(e.getStatusCode() + ": " + e.getStatusText());
@@ -376,28 +373,20 @@ public class SRestRoomController {
 
 
 
-
-
-        /*
-        System.out.println("ok 4");
-        //jsp에서 searchword 변수를 쓸수 있도록 넘겨줌
-        model.addAttribute("searchWord", searchWord);
-        model.addAttribute("restRoom",  restRoom.getSearchPublicToiletPOIService().getRow());
-        System.out.println("restRoom = " + restRoom);
-        return "daumBook";
-        */
-
-
-
         return new  ResponseEntity<ArrayList<Output>>(list , HttpStatus.OK);
     }
 
 
-    //일반 api 키가져오는거
+    /* 사용 API
+       서울시 공원 API : http://data.seoul.go.kr/openinf/openapiview.jsp?infId=OA-394
+       다음 키워드로 장소검색 API : https://developers.daum.net/services/apis/local/v1/search/keyword.format
+
+        결과
+        공원에서 인접한 역을 출력해줌.
+     */
     @RequestMapping(value = "/park/neareststation", method= RequestMethod.GET, produces="application/json")
     public  ResponseEntity< List<NearestStation>> getParkWithJustAPIKey(Model model){
 
-                                           // @RequestParam(name = "searchWord") String searchWord) { //jsp에서 입력한 searchword 를 받아와 url 끝에 들어감.
 
         RestTemplate PrestTemplate = new RestTemplate();
         RestTemplate TrestTemplate = new RestTemplate();
@@ -431,7 +420,7 @@ public class SRestRoomController {
                     {
 
 
-                        //다음 지도 검색 api
+
                         ResponseEntity<TrainStation> trainStationResponseEntity
                                 = TrestTemplate.getForEntity("https://apis.daum.net/local/v1/search/keyword.json?apikey=f72e008bdadbf7dddd402aebdedc461e&" +
                                 "location=37.5347931041467,126.877036107442&radius=12000&query=" + i +"호선 지하철역&page=" + j ,TrainStation.class);
@@ -538,8 +527,6 @@ public class SRestRoomController {
                     temp2.put(entry.getKey(), map.get(entry.getKey()));
 
 
-                  //  System.out.println(entry.getKey()+" : "+map.get(entry.getKey()));
-
                 count ++;
 
             }
@@ -561,8 +548,7 @@ public class SRestRoomController {
 
 
         return new ResponseEntity<List<NearestStation>>(nlist , HttpStatus.OK);
-       // return "daumBook";
-       // return JSONResponseUtil.getJSONResponse(result);
+
     }
 
 
@@ -570,10 +556,20 @@ public class SRestRoomController {
 
 
 
+    /* 사용 API
+    서울시 공원 API : http://data.seoul.go.kr/openinf/openapiview.jsp?infId=OA-394
+    다음 주소 -> 좌표변환 API : https://developers.daum.net/services/apis/local/geo/addr2coord
+
+    결과
+    입력한 주소에서 가장 가까운 공원을 검색해줌.
+
+    address와 parkc 필수적으로 기입해주어야함.
+    */
+
     @RequestMapping(value = "/park/nearest", method= RequestMethod.GET, produces="application/json")
     public  ResponseEntity< NearestPark> getParkWithJustAPIKey(Model model,
                                                                         @RequestParam(name = "address") String address,
-                                                                        @RequestParam(name = "parkc") String parkc) { //jsp에서 입력한 searchword 를 받아와 url 끝에 들어감.
+                                                                        @RequestParam(name = "parkc") String parkc) {
 
         RestTemplate PrestTemplate = new RestTemplate();
         RestTemplate CurrentLocTemplate = new RestTemplate();
@@ -650,6 +646,21 @@ public class SRestRoomController {
 
 
 
+
+
+
+       /* 사용 API
+        서울시 공원 API : http://data.seoul.go.kr/openinf/openapiview.jsp?infId=OA-394
+        서울시 공중화장실 API : http://data.seoul.go.kr/openinf/openapiview.jsp?infId=OA-162
+        서울시 자전거 대여소 정보 API : http://data.seoul.go.kr/openinf/openapiview.jsp?infId=OA-12969
+        다음 주소 -> 좌표변환 API : https://developers.daum.net/services/apis/local/geo/addr2coord
+        다음 키워드로 장소검색 API : https://developers.daum.net/services/apis/local/v1/search/keyword.format
+
+         결과
+        위에 API를 모두사용하여 현재 주소에서 인접한 공원목록 -> 공원별 정보(좌표,거리,편의시설) , 가까운 역  표시해줌.
+
+         address와 parkc 필수적으로 기입해주어야함.
+    */
 
     @RequestMapping(value ="/park/view", method= RequestMethod.GET, produces="application/json")
     public ResponseEntity<Tree> getviewWithJustAPIKey(Model model,@RequestParam(name = "address") String address,

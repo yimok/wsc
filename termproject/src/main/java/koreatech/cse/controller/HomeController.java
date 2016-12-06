@@ -17,10 +17,8 @@ public class HomeController {
     //함수를 호출하면 model을 자동으로 넣어줌
     public String home(Model model)
     {
-        User user = new User();
-        user.setName("Hong gil");
-        model.addAttribute("user",user);
-        return "hello";
+
+        return "index";
     }
 
 

@@ -22,7 +22,7 @@ public class Child_ {
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     /**
-     * 
+     *
      * @return
      *     The name
      */
@@ -32,7 +32,7 @@ public class Child_ {
     }
 
     /**
-     * 
+     *
      * @param name
      *     The name
      */
