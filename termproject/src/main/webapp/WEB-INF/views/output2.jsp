@@ -1,9 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<meta charset="utf-8">
+
 <html>
 <head>
-    <title>Edit</title>
-
+    <title>Spring 실습</title>
     <style>
 
         .node {
@@ -27,11 +28,16 @@
         }
 
     </style>
-
-
 </head>
-<body><script src="//d3js.org/d3.v3.min.js"></script>
+
+
+
+
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
 <script>
+
+    var pubs =${tree}
 
     var margin = {top: 20, right: 120, bottom: 20, left: 120},
             width = 960 - margin.right - margin.left,
@@ -53,26 +59,13 @@
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    d3.json("flare.json", function(error, flare) {
-        if (error) throw error;
 
+    root = pubs;
+    root.x0 = height / 2;
+    root.y0 = 0;
 
-        root = {"name":"서울 노원구","children":[{"name":"월천근린공원 899m","children":[{"name":"창동역 1호선 687m"},{"name":"녹천역 1호선 329m"},{"name":"창동역 4호선 682m"},{"name":"자전거 대여소 : 0"},{"name":"화장실 : 7"}]},{"name":"초안산공원 1527m","children":[{"name":"쌍문역 4호선 605m"},{"name":"창동역 1호선 835m"},{"name":"창동역 4호선 897m"},{"name":"자전거 대여소 : 0"},{"name":"화장실 : 6"}]},{"name":"발바닥공원 2231m","children":[{"name":"쌍문역 4호선 1270m"},{"name":"창동역 1호선 1555m"},{"name":"방학역 1호선 1378m"},{"name":"자전거 대여소 : 0"},{"name":"화장실 : 12"}]}]}
-
-        root.x0 = height / 2;
-        root.y0 = 0;
-
-        function collapse(d) {
-            if (d.children) {
-                d._children = d.children;
-                d._children.forEach(collapse);
-                d.children = null;
-            }
-        }
-
-        root.children.forEach(collapse);
-        update(root);
-    });
+    //root.children.forEach(collapse); // start with all children collapsed
+    update(root);
 
     d3.select(self.frameElement).style("height", "800px");
 
@@ -84,6 +77,7 @@
 
         // Normalize for fixed-depth.
         nodes.forEach(function(d) { d.y = d.depth * 180; });
+
 
         // Update the nodes…
         var node = svg.selectAll("g.node")
@@ -118,10 +112,10 @@
         nodeUpdate.select("text")
                 .style("fill-opacity", 1);
 
-        // Transition exiting nodes to the parent's new position.
+        // TODO: appropriate transform
         var nodeExit = node.exit().transition()
                 .duration(duration)
-                .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
+                //.attr("transform", function(d) { return "diagonal(" + source.y + "," + source.x + ")"; })
                 .remove();
 
         nodeExit.select("circle")
@@ -175,6 +169,13 @@
         update(d);
     }
 
+    // Collapse nodes
+    function collapse(d) {
+        if (d.children) {
+            d._children = d.children;
+            d._children.forEach(collapse);
+            d.children = null;
+        }
+    }
+
 </script>
-</body>
-</html>

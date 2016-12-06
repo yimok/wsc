@@ -1,11 +1,11 @@
-package koreatech.cse.domain;
+package koreatech.cse.domain.myapi.station;
 
 import java.util.HashMap;
 
 /**
  * Created by Yimo on 2016-12-03.
  */
-public class NearestStation {
+public class MyNearestStation {
 
     private String Pname;
     HashMap<String, Double> station = new HashMap<String, Double>();
@@ -32,7 +32,7 @@ public class NearestStation {
 
 
 
-    public NearestStation() {
+    public MyNearestStation() {
 
     }
 
