@@ -37,10 +37,20 @@ import java.util.*;
 @RequestMapping("/my")
 public class MyRestController {
 
-/*
-    @RequestMapping(value ="/park/view", method= RequestMethod.GET, produces="application/json")
-    public ResponseEntity<Tree> getviewWithJustAPIKey(Model model, @RequestParam(name = "address") String address,
-  */
+
+       /* 사용 API
+        서울시 공원 API : http://data.seoul.go.kr/openinf/openapiview.jsp?infId=OA-394
+        서울시 공중화장실 API : http://data.seoul.go.kr/openinf/openapiview.jsp?infId=OA-162
+        서울시 자전거 대여소 정보 API : http://data.seoul.go.kr/openinf/openapiview.jsp?infId=OA-12969
+        다음 주소 -> 좌표변환 API : https://developers.daum.net/services/apis/local/geo/addr2coord
+        다음 키워드로 장소검색 API : https://developers.daum.net/services/apis/local/v1/search/keyword.format
+
+         결과
+        위에 API를 모두사용하여 현재 주소에서 인접한 공원목록 -> 공원별 정보(좌표,거리,편의시설) , 가까운 역  표시해줌.
+
+         address와 parkc 필수적으로 기입해주어야함.
+    */
+
     @RequestMapping("/park/view")
      public String getviewWithJustAPIKey(Model model, @RequestParam(name = "address") String address,
                                                       // public String getviewWithJustAPIKey(Model model,@RequestParam(name = "address") String address,
