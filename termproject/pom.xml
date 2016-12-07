@@ -6,7 +6,7 @@
     <name>Web Service and Computing - Spring</name>
     <groupId>koreatech.cse</groupId>
     <artifactId>wsc</artifactId>
-    <version>002</version>
+    <version>005</version>
     <packaging>war</packaging>
 
     <properties>

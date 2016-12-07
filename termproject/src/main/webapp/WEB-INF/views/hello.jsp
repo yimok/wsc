@@ -3,7 +3,7 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html>
 <head>
-    <title>Spring 실습</title>
+    <title>Nearby Park Info</title>
 </head>
 <body>
 
