@@ -25,7 +25,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Termproject</title>
+    <title>Nearby Park Info</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
@@ -50,23 +50,39 @@
 
     <style>
 
-        body {
-            padding-top: 40px;
-            padding-bottom: 40px;
-            background-color: #eee;
+        .login_wrapper {
+            width:600px;
+            height:375px;
+            background: rgba( 255, 255, 255, 0.4 );
+            margin:0 auto;
+            background-position: center;
+        }
+        .login_wrapper h1 {
+            padding-top:30px;
+            text-align:center;
+            color:#fff;
+        }
+        .login_wrapper input[type=text] {
+            width:80%;
+            height: 25px;
+            margin-left: 10%;
+            margin-top: 10px;
         }
 
+        body {
+            background: url(../resources/images/background-main.jpg) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
         .form-signin2 {
             max-width: 165px;
             padding: 5px;
         }
 
-        .temp {
-            margin: 0 auto;
-        }
-
         .form-signin {
-            max-width: 330px;
+            max-width: 580px;
             padding: 15px;
             margin: 0 auto;
         }
@@ -114,38 +130,30 @@
 </head>
 
 <body>
-
-<div class="container">
-
-    <form class="form-signin" action="/my/park/view" method="GET">
-        <h2 class="form-signin-heading">
-           인접한 공원 찾기</h2>
-        <label for="inputaddress" class="sr-only">My address</label>
-        <input type="Address" id="inputaddress" name="address" class="form-control" placeholder="My address" required autofocus>
-        <label for="inputlists" class="sr-only">Number of lists</label>
-        <input type="lists" id="inputlists" name="parkc" class="form-control" placeholder="Number of lists" required>
-
-
-        <button class="btn btn-lg btn-primary btn-block" type="submit">submit</button>
-    </form>
+<div class="container" style="padding-top:100px">
+    <div class="login_wrapper">
+        <form class="form-signin" action="/my/park/view" method="GET">
+            <h1 class="form-signin-heading">
+                Nearby park info search</h1>
+            <label for="inputaddress" class="sr-only">My address</label>
+            <input type="Address" id="inputaddress" name="address" class="form-control" placeholder="My address" required autofocus>
+            <label for="inputlists" class="sr-only">Number of lists</label>
+            <input type="lists" id="inputlists" name="parkc" class="form-control" placeholder="Number of lists" required>
 
 
+            <button class="btn btn-lg btn-primary btn-block" type="submit">submit</button>
+        </form>
 
-    <div id="wrapper">
-        <div class="box1"><form class="form-signin2" action="/seoul/park/info" method="GET">
-            <button class="btn btn-lg btn-primary btn-block" type="submit">ParkInfo</button>
-        </form></div>
-        <div class="box2"> <form class="form-signin2" action="/seoul/park/neareststation" method="GET">
-            <button class="btn btn-lg btn-primary btn-block" type="submit">NearestStation</button>
-        </form></div>
+        <div id="wrapper">
+            <div class="box1"><form class="form-signin2" action="/seoul/park/info" method="GET">
+                <button class="btn btn-lg btn-primary btn-block" type="submit">ParkInfo</button>
+            </form></div>
+            <div class="box2"> <form class="form-signin2" action="/seoul/park/neareststation" method="GET">
+                <button class="btn btn-lg btn-primary btn-block" type="submit">NearestStation</button>
+            </form></div>
 
+        </div>
     </div>
-
-
-
-
-
-
 </div> <!-- /container -->
 
 

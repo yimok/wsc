@@ -1,6 +1,4 @@
-﻿# wsc
-
-##Web Service Computing Term-Project
+﻿#Web Service Computing Term-Project
 - REST, AWS를 활용한 공원 정보 제공
 
 #사용한 Open API

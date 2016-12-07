@@ -8,7 +8,6 @@ import koreatech.cse.domain.d3.Tree;
 import koreatech.cse.domain.daum.DaumBook;
 import koreatech.cse.domain.daum.Item;
 import net.sf.json.JSONSerializer;
-import org.json.simple.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
