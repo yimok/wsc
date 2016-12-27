@@ -76,14 +76,9 @@
 
 #결과 사진 
 
-<figure>
-<p style="text-align: center;">	
-![image 1](http://postfiles8.naver.net/MjAxNjEyMjdfMTY1/MDAxNDgyODE4OTc2NTcz.itJCLPVIPS-A3T_1hsXcbYBpnhk8xVw8QibB3ZJLMp4g.U7P4j-trZmHnyc-PHwqw6VRcFvpniAShM8ZBUEXwvLgg.PNG.dlagyrbs/web1.PNG?type=w2) 
-</p>
-</figure>
 
-<figure>
-<p style="text-align: center;">	
+![image 1](http://postfiles8.naver.net/MjAxNjEyMjdfMTY1/MDAxNDgyODE4OTc2NTcz.itJCLPVIPS-A3T_1hsXcbYBpnhk8xVw8QibB3ZJLMp4g.U7P4j-trZmHnyc-PHwqw6VRcFvpniAShM8ZBUEXwvLgg.PNG.dlagyrbs/web1.PNG?type=w2) 
+
+
 ![image 2](http://postfiles4.naver.net/MjAxNjEyMjdfOTQg/MDAxNDgyODE4OTc2OTc5.i0NxaAfVXwdz91rZEwkwvewwyoAnk-zqXaPQ3umT1i4g.78M7iK4WNlwuI1dVaZR2pgP0iDbs5He2h2S0S3KgERsg.PNG.dlagyrbs/web2.PNG?type=w2) 
-</p>
-</figure>
+
