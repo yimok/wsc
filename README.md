@@ -1,14 +1,14 @@
-﻿#Web Service Computing Term-Project
+﻿# Web Service Computing Term-Project
 - REST, AWS를 활용한 공원 정보 제공
 
-#개발 환경
+# 개발 환경
 - Spring Framework
 - Apache Tomcat 8
 - Java JDK 8
 - Intellij IDEA
 
 
-#사용한 Open API
+# 사용한 Open API
 
 |             사용 API       | 주소               |
 | ---------------------- | ------------------------ |
@@ -21,14 +21,14 @@
 
 
 
-#정보 가공
+# 정보 가공
 1. 공원 주변 공공화장실, 자전거 대여소 파악
 2. 지하철역의 경도,위도 정보를 수집하여 검색한 공원과의 거리를 계산하여 가장 가까운역을 파악
 
 
-#사용 명세서
+# 사용 명세서
 
-##Park Info
+## Park Info
 
 - 요청 주소(로컬)  : http://localhost:8080/seoul/park/info
 - 요철 주소(아마존) : http://ec2-52-199-192-231.ap-northeast-1.compute.amazonaws.com/seoul/park/info?
@@ -42,7 +42,7 @@
 | Bcount         |         Int      |      공원 내의 공공 화장실 수              |       
 
 
-##Nearest Station
+## Nearest Station
 
 - 요청 주소(로컬)  : http://localhost:8080/seoul/park/neareststation
 - 요철 주소(아마존) : http://ec2-52-199-192-231.ap-northeast-1.compute.amazonaws.com/seoul/park/neareststation?
@@ -54,7 +54,7 @@
 | pname         |             Double      |         공원의 이름          |                                                                                                      
 
 
-##주소에 따른 공원 검색
+## 주소에 따른 공원 검색
 
 - 요청 주소(로컬)  : http://localhost:8080/seoul/park/nearest?address=주소&parkc=5
 - 요철 주소(아마존) : http://ec2-52-199-192-231.ap-northeast-1.compute.amazonaws.com/seoul/park/nearest?address=주소&parkc=5
@@ -74,7 +74,7 @@
 | park       |         HashMap<String,Double>      |         주소와 가장 가까운 공원 3곳의 이름과 거리        | 
 
 
-#결과 사진 
+# 결과 사진 
 
 
 ![image 1](http://postfiles8.naver.net/MjAxNjEyMjdfMTY1/MDAxNDgyODE4OTc2NTcz.itJCLPVIPS-A3T_1hsXcbYBpnhk8xVw8QibB3ZJLMp4g.U7P4j-trZmHnyc-PHwqw6VRcFvpniAShM8ZBUEXwvLgg.PNG.dlagyrbs/web1.PNG?type=w2) 
